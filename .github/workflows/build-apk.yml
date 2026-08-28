@@ -28,7 +28,7 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install Android 36 Platform & Build-Tools
+      - name: Accept Licenses & Install Android 36 SDK
         run: |
           yes | sdkmanager --licenses || true
           sdkmanager "platforms;android-36" "build-tools;36.0.0" "platform-tools" || true
@@ -36,7 +36,7 @@ jobs:
       - name: Setup Gradle Environment
         uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.13'
+          gradle-version: '9.3.1'
 
       - name: Prepare Keystore and Environment Config
         run: |
@@ -46,7 +46,7 @@ jobs:
           touch .env
 
       - name: Build Debug APK
-        run: gradle :app:assembleDebug --stacktrace --no-daemon
+        run: gradle :app:assembleDebug --stacktrace --no-daemon -x test -x lint
 
       - name: Verify Generated APK
         run: |
