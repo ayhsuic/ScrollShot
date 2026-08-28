@@ -1,0 +1,7 @@
+{
+  "name": "长截图",
+  "description": "类原生风格的长截图与无缝拼接工具，支持滚动长截图、多图智能拼接、涂鸦马赛克与精美设备外框导出",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
